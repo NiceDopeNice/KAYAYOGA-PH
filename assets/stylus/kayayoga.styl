@@ -1,0 +1,1193 @@
+@import 'fonts'
+
+// color
+$lr = #C41967
+$lr_hover = #E1247A
+$lr_disabled = #AB0551
+$lv = #461D84
+$black = #000
+$light_black = #171717
+$white = #fff
+
+*,
+*:before,
+*:after
+    user-select: none
+    box-sizing: border-box
+    margin: 0
+    word-break: break-word !important
+
+input, textarea 
+  -webkit-user-select: text
+  -khtml-user-select: text
+  -moz-user-select: text
+  -ms-user-select: text
+  user-select: text
+  
+body
+    position: relative
+    overflow-x: hidden
+
+a
+    text-decoration: none
+button.k_btn
+    border-radius: 50px
+    font_family(17px, false, 'proxima_bold')
+    background: $lr
+    border: none
+    color: $white
+    cursor: pointer
+    outline: none
+    transition:  ease-in-out .3s
+    &:hover
+        background: $lr_hover
+        transition: ease-in-out .3s
+        box-shadow: 0px 10px 15px #0033
+    &.k_disabled
+        background: $lr_disabled
+        cursor: auto
+        &:hover
+            background: $lr_disabled
+            box-shadow: none
+
+.viewer-toolbar, .viewer-title
+    display: none !important
+.viewer-transition
+    z-index: 999999 !important
+.viewer-backdrop {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.k_loading_cont
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 999999
+    background: rgba(255,255,255, 1);
+    &.k_contact_body
+        background: rgba(255,255,255,0.7) !important;
+    .k_loading_main
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        .k_loading
+            border-radius: 50%
+            border-top: 4px solid $lr
+            box-shadow: inset 0 0 0 2px rgba(196, 25, 103, 0.1)
+            width: 200px
+            height: 200px
+            -webkit-animation: spin 2s linear infinite
+            animation: spin 2s linear infinite
+            @media screen and (max-width: 1024px)
+                width: 150px
+                height: 150px
+        img
+            position: absolute
+            width: 100px
+            @media screen and (max-width: 1024px)
+                width: 90px
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform rotate(0deg)
+        transform rotate(0deg)
+    }
+    100% {
+        -webkit-transform rotate(360deg)
+        transform rotate(360deg)
+    }
+}
+@keyframes spin{
+    0% {
+        -webkit-transform rotate(0deg)
+        transform rotate(0deg)
+    }
+    100% {
+        -webkit-transform rotate(360deg)
+        transform rotate(360deg)
+    }
+}
+
+.k_announce_cont
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.8)
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 9999999
+    .k_announce_holder
+        position: relative
+        .k_announce_main
+            padding: 50px
+            background: $white
+            width: 700px
+            margin: 0 auto
+            text-align: center
+            border-radius: 25px
+            @media screen and (max-width: 1024px)
+                max-width: 500px
+                width: 90%
+                padding: 40px
+            @media screen and (max-width: 500px)
+                padding: 30px 20px 20px 20px
+            img
+                width: 75%
+                @media screen and (max-width: 500px)
+                    width: 100%
+            .k_announce_body
+                margin-top: 40px
+                text-align: center
+                @media screen and (max-width: 1024px)
+                    margin-top: 20px
+                h1
+                    font_family(41px, false, 'proxima_bold')
+                    @media screen and (max-width: 1024px)
+                        font-size: 25px
+                    @media screen and (max-width: 400px)
+                        font-size: 20px
+                .k_announce_btn
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    margin-top: 40px
+                    @media screen and (max-width: 1024px)
+                        flex-direction: column
+                        margin-top: 20px    
+                    .k_btn
+                        flex: 0 0 calc(50% - 10px)
+                        padding: 18px 0
+                        @media screen and (max-width: 1024px)
+                            font-size: 15px
+                            max-width: 300px
+                            width: 100%
+                            margin: 0 auto
+                            margin-bottom: 10px
+                        @media screen and (max-width: 400px)
+                            padding: 15px 0px
+        .k_announce_close
+            position: absolute
+            top: 0px
+            right: -10%
+            cursor: pointer
+            @media screen and (max-width: 1024px)
+                position: relative
+                top: 0px
+                right: 0px
+                cursor: pointer
+                text-align: center
+                margin-top: 30px
+                @media screen and (max-width: 500px)
+                    margin-top: 20px    
+            svg
+                @media screen and (max-width: 1024px)
+                    width: 30px
+                .a
+                    stroke: $white
+                &:hover
+                    .a
+                        stroke: $lr_hover
+                        transition: ease-in-out .3s
+
+                    
+.k_header
+    width: 100%
+    background: $white
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 99999
+    .k_header_mob
+        height: 100%
+        width: 0
+        position: fixed
+        z-index: 999999
+        top: 0
+        right: 0
+        background-color: $white
+        overflow-x: hidden
+        transition: 0.5s
+        border: solid 0.5px #d6e0e5
+        &.open
+            width: 100%
+        .k_mob_header
+            position: relative
+            display: flex
+            justify-content: space-between
+            align-items: center
+            padding: 25px
+            max-width: 800px
+            width: 100%
+            margin: 0 auto
+            img
+                width: 101px
+            .k_close 
+                width: 32px
+                height: 32px
+                opacity: 1
+                position: relative
+                &::before, &::after
+                    position: absolute
+                    left: 15px
+                    content: ' '
+                    height: 33px
+                    width: 2px
+                    background-color: $black
+                &::before
+                    transform: rotate(45deg)
+                &::after
+                    transform: rotate(-45deg)
+        .k_mob_list_cont
+            position: absolute
+            top: 0
+            bottom: 0
+            right: 0
+            left: 0
+            display: flex
+            align-items: center
+            justify-content: center
+            z-index: -1
+            width: 300px
+            margin: 0 auto
+            ul
+                list-style: none
+                text-align: center
+                padding: 0
+                li
+                    font_family(21px, false, 'proxima_bold')
+                    padding: 25px 0
+                    a
+                        color: $light_black
+                        text-decoration: none
+                        transition: ease-in-out .3s
+                        display: block
+                        &.active
+                            color: $lr
+                            transition: ease-in-out .3s
+
+    .k_main_h
+        display: flex
+        justify-content: space-between
+        align-items: center
+        max-width: 1400px
+        width: 90%
+        margin: 0 auto
+        padding: 20px 0px
+        @media screen and (max-width: 1024px)
+            padding: 15px 0px
+        .k_logo
+            img
+                width: 135px
+                height: 68px
+                @media screen and (max-width: 400px)
+                    width: 104px
+                    height: 52px
+        .k_nav
+            margin-left: auto
+            display: block
+            @media screen and (max-width: 1024px)
+                display: none
+            ul
+                list-style: none
+                display: flex
+                align-items: center
+                justify-content: space-evenly
+                li
+                    font_family(17px, false, 'proxima_bold')
+                    padding: 0px 15px
+                    @media screen and (max-width: 1200px)
+                        font-size: 15px
+                        padding: 0px 10px
+                    a
+                        color: $light_black
+                        text-decoration: none
+                        transition: ease-in-out .3s
+                        &:hover
+                            color: $lr
+                            transition: ease-in-out .3s
+                        &.active
+                            color: $lr
+                            transition: ease-in-out .3s
+
+        .k_contact_btn
+            margin-left: 15px
+            .k_btn
+                padding: 18px 25px
+                @media screen and (max-width: 1200px)
+                    padding: 15px 20px
+                @media screen and (max-width: 400px)
+                    padding: 15px 17px
+                    font-size: 13px
+        .k_mobile_ham
+            display: none
+            @media screen and (max-width: 1024px)
+                display: block
+                margin-left: auto
+                margin-top: 5px
+            span
+                display: block
+                width: 33px
+                height: 2px
+                margin-bottom: 7px
+                position: relative
+                background: $light_black
+                border-radius: 3px
+                z-index: 1
+                transform-origin: 4px 0px
+                transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                            background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                            opacity 0.55s ease
+                &:first-child
+                    transform-origin: 0% 0% 
+                &:nth-last-child(2)
+                    transform-origin: 0% 100%
+.k_container
+    max-width: 1400px
+    width: 100%
+    margin: 0 auto
+    padding: 20px 0px
+    margin-top: 120px
+    @media screen and (max-width: 1024px)
+        width: 100%
+        padding: 0px
+        margin-top: 104px
+    @media screen and (max-width: 400px)
+        margin-top: 86px
+    .k_thumb
+        display: none
+    .k_aboutus
+        display: flex
+        justify-content: space-between
+        align-items: center
+        @media screen and (max-width: 1400px)
+            width: 90%
+            margin: 0 auto
+        @media screen and (max-width: 1024px)
+            flex-direction: column-reverse
+            width: 100%
+        .k_aboutus_des
+            font_family(15px, false, 'proxima_bold')
+            color: $light_black
+            padding-top: 50px    
+            width: 500px
+            @media screen and (max-width: 1300px)
+                width: 450px
+            @media screen and (max-width: 1150px)
+                width: 420px
+            @media screen and (max-width: 1024px)
+                max-width: 500px
+                width: 90%
+                text-align: center
+                padding-top: 20px
+            h4
+                color: $lv
+            .k_aboutus_txt
+                font-size: 30px
+                margin: 10px 0px 30px 0px
+                @media screen and (max-width: 450px)
+                    font-size: 25px
+            p
+                font_family(15px, false, 'proxima_regular')
+                padding-bottom: 20px 
+            .k_aboutus_btn
+                display: flex
+                justify-content: space-between
+                align-items: center
+                @media screen and (max-width: 1024px)
+                    display: block
+                .k_btn
+                    padding: 18px 0px
+                    margin: 20px 0px
+                    margin-right: 5px
+                    flex: 0 0 calc(50% - 10px)
+                    @media screen and (max-width: 1300px)
+                        padding: 18px 20px
+                        font-size: 14px
+                        width: 200px
+                    @media screen and (max-width: 450px)
+                        max-width: 300px
+                        width: 90%
+                        margin: 10px 0px
+            .k_social_top
+                margin-top: 20px
+                display: flex
+                justify-content: flex-start
+                align-items: center
+                @media screen and (max-width: 1024px)
+                    justify-content: center
+                a
+                    svg
+                        margin-right: 25px
+                        @media screen and (max-width: 1024px)
+                            margin: 0 25px
+                        .a
+                            fill: $light_black
+                            stroke: $light_black
+                            stroke-width: .5
+                        &:hover
+                            .a
+                                fill: $lr
+                                stroke: $lr
+                    // &:nth-of-type(1)
+                    //     img
+                    //         width: 11px
+                    //         margin-right: 30px
+                    //         @media screen and (max-width: 1024px)
+                    //             width: 14px
+                    //             margin-right: 40px
+                    //         &:hover
+                    //             content: url('/img/fb_icon_hover.png')
+                    // &:nth-of-type(2)
+                    //     img
+                    //         width: 23px
+                    //         @media screen and (max-width: 1024px)
+                    //             width: 30px
+                    //         &:hover
+                    //             content: url('/img/instagram_icon_hover.png')
+        .k_aboutus_carousel
+            position: relative
+            width: 700px
+            outline: none
+            @media screen and (max-width: 1400px)
+                width: 600px
+            @media screen and (max-width: 1300px)
+                width: 550px
+            @media screen and (max-width: 1150px)
+                width: 500px
+            @media screen and (max-width: 1024px)
+                max-width: 700px
+                width: 100%
+            .slick-slider
+                width: 100%
+                .slick-prev
+                    z-index: 9999
+                    left: 10px
+                    @media screen and (max-width: 1024px)
+                        display: none
+                    &:before
+                        content: ""
+                    svg
+                        width: 46px
+                        height: 46px
+                        stroke-width: 4px
+                        border-radius: 50%
+                        .a
+                            fill: $white
+                            transition: .3s ease-in-out
+                        .b
+                            stroke: $lr_hover
+                            transition: .3s ease-in-out
+                            fill: transparent
+                        &:hover
+                            .a
+                                fill: $lr_hover
+                                stroke: none
+                                transition: .3s ease-in-out
+                            .b
+                                stroke: $white
+                                transition: .3s ease-in-out
+                .slick-next
+                    right: 40px
+                    z-index: 9999
+                    @media screen and (max-width: 1024px)
+                        display: none
+                    &:before
+                        content: ""
+                    svg
+                        width: 46px
+                        height: 46px
+                        stroke-width: 4px
+                        border-radius: 50%
+                        .a
+                            fill: $white
+                            transition: .3s ease-in-out
+                        .b
+                            stroke: $lr_hover
+                            transition: .3s ease-in-out
+                            fill: transparent
+                        &:hover
+                            .a
+                                fill: $lr_hover
+                                stroke: none
+                                transition: .3s ease-in-out
+                            .b
+                                stroke: $white
+                                transition: .3s ease-in-out
+                .slick-dots
+                    bottom: 25px
+                    li
+                        width: 10px
+                        button
+                            width: 0px
+                            height: 0px
+                            &:before
+                                font-size: 10px
+                                color: $white
+                                opacity: 1
+                                width: 0px
+                                height: 0px
+                        &.slick-active 
+                            button
+                                width: 0px
+                                height: 0px
+                                &:before
+                                    color: $lv
+            .k_slide_img
+                width: 100%
+                border-radius: 10px
+                @media screen and (max-width: 700px)
+                    border-radius: 0px
+            
+    .k_what_we_practice
+        display: flex
+        justify-content: space-between
+        align-items: center
+        align-content: center
+        margin-top: 120px
+        flex-wrap: wrap
+        @media screen and (max-width: 1400px)
+            width: 90%
+            margin: 0 auto
+            margin-top: 120px
+        @media screen and (max-width: 1024px)
+            max-width: 700px
+            margin-top: 50px
+            align-items: end
+        @media screen and (max-width: 700px)
+            max-width: 350px
+            width: 90%
+        .k_what_we_list
+            flex: 0 0 calc(33.33% - 10px)
+            position: relative
+            margin-bottom: 20px
+            @media screen and (max-width: 1024px)
+                flex: 0 0 calc(50% - 10px)
+            @media screen and (max-width: 700px)
+                flex: 0 0 100%
+            .k_what_we_first
+                text-align: center
+                font_family(17px, false, 'proxima_regular')
+                max-width: 400px
+                width: 90%
+                margin: 0 auto
+                h4
+                    font_family(15px, false, 'proxima_bold')
+                    color: $lv
+                    margin: 5px 0px
+                h1
+                    font_family(35px, false, 'proxima_bold')
+                    margin: 10px 0px 20px 0px
+                    @media screen and (max-width: 1200px)
+                        font-size: 30px
+                img
+                    width: 68px
+                    margin-bottom: 20px
+                p
+                    padding-bottom: 16px
+                    font-size: 15px
+                    @media screen and (max-width: 1200px)
+                        font-size: 13px
+                    @media screen and (max-width: 1024px)
+                        font-size: 16px
+            svg
+                width: 60px
+                height: 60px
+                position: absolute
+                top: 10px
+                left: 10px
+                border-radius: 50%
+                cursor: pointer
+                .a
+                    stroke: $lr
+                    stroke-width: 3px
+                    fill: $lr
+                    transition: .3s ease-in-out
+                .b
+                    fill: $lr
+                    stroke: $white
+                    stroke-width: 1px
+                    transition: .3s ease-in-out
+                &:hover
+                    .a
+                        stroke: $white
+                        fill: $white
+                    .b
+                        fill: $white
+                        stroke: $lr
+            .k_what_we_img
+                width: 100%
+                border-radius: 10px
+            .k_what_we_desc
+                position absolute
+                bottom 0px
+                left: 20px
+                right: 20px
+                max-height: 105px
+                background: $white
+                border-top-left-radius: 18px
+                border-top-right-radius: 18px
+                text-align: center
+                padding: 0px 20px
+                overflow: hidden
+                transition: .3s ease-in-out
+                @media screen and (max-width: 1100px)
+                    left: 10px
+                    right: 10px
+                @media screen and (max-width: 1024px)
+                    max-height: 100%
+                    position: relative
+                    width: 85%
+                    margin: 0 auto
+                    margin-top: -60px
+                    height: auto    
+                    left: 0
+                    right: 0
+                    padding: 0px
+                    &.open_desc
+                        padding-bottom: 0px !important
+                        .k_what_we_title
+                            color: $light_black !important
+
+                &.open_desc
+                    max-height: 400px
+                    padding-bottom: 50px
+                    transition: .3s ease-in-out
+                    .k_what_we_title
+                        color: $lr
+                .k_what_we_title
+                    font_family(28px, false, 'proxima_bold')
+                    padding: 35px 0px
+                    @media screen and (max-width: 1024px)
+                        font-size: 22px
+                        padding: 20px 0px
+                .k_what_we_p
+                    font_family(17px, false, 'proxima_regular')
+                    @media screen and (max-width: 1024px)
+                        font-size: 15px
+    .k_teacher_tra_cont
+        max-width: 1100px
+        width: 90%
+        margin: 0 auto
+        text-align: center
+        padding: 50px 0px
+        h4
+            font_family(17px, false, 'proxima_bold')
+            color: $lv
+            margin: 5px 0px
+        h1
+            font_family(35px, false, 'proxima_bold')
+            margin: 10px 0px 20px 0px
+        p
+            font_family(17px, false, 'proxima_regular')
+            color: $light_black
+            max-width: 730px
+            width: 90%
+            margin: 0 auto
+            span
+                font-weight: 400
+                color: $lv
+        .k_three_typ
+            display: flex
+            justify-content: space-between
+            @media screen and (max-width: 700px)
+                flex-direction: column
+            .k_type
+                display: flex
+                align-items: center
+                flex-direction: column
+                margin-top: 30px
+                flex: 0 0 calc(33.33% - 10px)
+                @media screen and (max-width: 700px)
+                    margin-top: 20px
+                    width: 300px
+                    margin:0 auto
+                    margin-top: 30px
+                img
+                    width: 196px
+                    height: 150px
+                p
+                    width: 100%
+                    padding: 10px
+    .k_teacher_tra_slider
+        width: 100%
+        background: #F9F9F9
+        .k_tra_cont
+            display: flex
+            justify-content: space-between
+            align-items: center
+            @media screen and (max-width: 1024px)
+                flex-direction: column
+            .k_tra_left
+                max-width: 400px
+                width: 95%
+                margin: 0 auto
+                @media screen and (max-width: 1024px)
+                    text-align: center
+                    padding: 40px 5px
+                img
+                  width: 140px
+                p
+                    font_family(17px, false, 'proxima_regular')
+                    padding-top: 30px
+                    &:nth-last-child(2)
+                        font_family(17px, false, 'proxima_bold')
+                        color: $lv
+                        padding: 20px 0px
+                .k_contact_btn
+                    margin-top: 5px
+                    .k_btn
+                        padding: 18px 70px
+                        @media screen and (max-width: 1024px)
+                            width: 100%
+            .k_tra_right
+                position: relative 
+                width: 700px
+                outline: none
+                @media screen and (max-width: 1200px)
+                    width: 600px
+                @media screen and (max-width: 1100px)
+                    max-width: 550px
+                    width: 100%
+                @media screen and (max-width: 900px)
+                    max-width: 100%
+                .slick-slider
+                    width: 100%
+                    .slick-prev
+                        z-index: 9999
+                        left: 10px
+                        @media screen and (max-width: 1024px)
+                            display: none
+                        &:before
+                            content: ""
+                        svg
+                            width: 45px
+                            height: 45px
+                            stroke-width: 3px
+                            .a   
+                                fill: none
+                                stroke: #fff
+                            &:hover
+                                .a
+                                    stroke: $lr_hover
+                                    transition: .3s ease-in-out
+                    .slick-next
+                        right: 40px
+                        z-index: 9999
+                        @media screen and (max-width: 1024px)
+                            display: none
+                        &:before
+                            content: ""
+                        svg
+                            width: 45px
+                            height: 45px
+                            stroke-width: 3px
+                            .a   
+                                fill: none
+                                stroke: #fff
+                            &:hover
+                                .a
+                                    stroke: $lr_hover
+                                    transition: .3s ease-in-out
+                    .slick-dots
+                        bottom: 25px
+                        li
+                            width: 10px
+                            button
+                                width: 0px
+                                height: 0px
+                                &:before
+                                    font-size: 10px
+                                    color: $white
+                                    opacity: 1
+                                    width: 0px
+                                    height: 0px
+                            &.slick-active 
+                                button
+                                    width: 0px
+                                    height: 0px
+                                    &:before
+                                        color: $lv
+                .k_slide_img
+                    width: 100%
+    .k_retreat
+        max-width: 1400px
+        width: 90%
+        margin: 0 auto
+        margin-top: 100px
+        position: relative
+        @media screen and (max-width: 1024px)
+            max-width: 700px
+            width: 100%
+            margin-top: 40px
+        @media screen and (max-width: 900px)
+            max-width: 100%
+        .slick-slider
+            width: 100%
+            .slick-prev
+                z-index: 9999
+                left: 170px
+                @media screen and (max-width: 1024px)
+                    display: none
+                &:before
+                    content: ""
+                svg
+                    width: 60px
+                    height: 60px
+                    stroke-width: 4px
+                    border-radius: 50%
+                    .a
+                        fill: $white
+                        transition: .3s ease-in-out
+                        stroke: none
+                    .b
+                        stroke: $lr_hover
+                        transition: .3s ease-in-out
+                        fill: none
+                    &:hover
+                        .a
+                            fill: $lr_hover
+                            transition: .3s ease-in-out
+                            stroke: none
+                        .b
+                            stroke: $white
+                            transition: .3s ease-in-out
+            .slick-next
+                right: 210px
+                z-index: 9999
+                @media screen and (max-width: 1024px)
+                    display: none
+                &:before
+                    content: ""
+                svg
+                    width: 60px
+                    height: 60px
+                    stroke-width: 4px
+                    border-radius: 50%
+                    .a
+                        fill: $white
+                        transition: .3s ease-in-out
+                        stroke: none
+                    .b
+                        stroke: $lr_hover
+                        transition: .3s ease-in-out
+                        fill: none
+                    &:hover
+                        .a
+                            fill: $lr_hover
+                            stroke: none
+                            transition: .3s ease-in-out
+                        .b
+                            stroke: $white
+                            transition: .3s ease-in-out
+            .slick-dots
+                top: 73%
+                @media screen and (max-width: 1200px)
+                    top: 70%
+                @media screen and (max-width: 1024px)
+                    top: auto
+                    bottom: 25%
+                li
+                    width: 10px
+                    button
+                        width: 0px
+                        height: 0px
+                        &:before
+                            font-size: 10px
+                            color: $white
+                            opacity: 1
+                            width: 0px
+                            height: 0px
+                    &.slick-active 
+                        button
+                            width: 0px
+                            height: 0px
+                            &:before
+                                color: $lr 
+            .k_img_cont
+                outline:none;
+                .k_slide_img
+                    width: 100%
+                    border-radius: 25px
+                    padding: 0 10px
+                    @media screen and (max-width: 500px)
+                        padding: 0 2px
+                        border-radius: 15px
+        .k_retreat_desc
+            width: 850px
+            background: #fff
+            z-index: 999
+            position: absolute
+            top: 80%
+            left: 5%
+            padding: 30px 40px
+            z-index: 2
+            @media screen and (max-width: 1024px)
+                width: 80%
+                top: 75%
+                left: 0
+                right: 0
+                margin: 0 auto
+                padding: 20px 40px
+                text-align: center
+            @media screen and (max-width: 500px)
+                padding: 10px 0px
+            p
+                margin-bottom: 10px
+            h4
+                font_family(15px, false, 'proxima_bold')
+                color: $lv
+                margin: 5px 0px
+                @media screen and (max-width: 1024px)
+                    font-size: 15px
+            h1
+                font_family(35px, false, 'proxima_bold')
+                margin: 10px 0px 20px 0px
+                @media screen and (max-width: 1200px)
+                    font-size: 30px
+                @media screen and (max-width: 1024px)
+                    font-size: 25px
+                    margin: 0px 0px 20px 0px
+                @media screen and (max-width: 500px)
+                    font-size: 20px
+    .k_honey_cont
+        max-width: 1100px
+        width: 90%
+        margin:0 auto
+        margin-top: 150px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        @media screen and (max-width: 1200px)
+            margin-top: 190px
+        @media screen and (max-width: 1000px)
+            flex-direction: column-reverse
+        @media screen and (max-width: 700px)
+            margin-top: 250px
+        @media screen and (max-width: 550px)
+            margin-top: 300px
+        @media screen and (max-width: 450px)
+            margin-top: 350px
+        .k_honey_left
+            flex: 0 0 60%
+            @media screen and (max-width: 1000px)
+                text-align: center
+            h1
+                font_family(35px, false, 'proxima_bold')
+                margin: 30px 0px
+            p
+                font_family(17px, false, 'proxima_regular')
+                margin-bottom: 20px
+                max-width: 500px
+                span
+                    color: $lv
+        .k_honey_right
+            flex: 1 0 10%
+            @media screen and (max-width: 1000px)
+                text-align: center
+            img
+                width: 100%
+                @media screen and (max-width: 1000px)
+                    max-width: 500px
+                    width: 90%
+    .k_contact_cont
+        max-width: 1100px
+        width: 90%
+        margin:0 auto
+        margin-top: 100px
+        text-align: center
+        h1  
+            font_family(35px, false, 'proxima_bold')
+        .k_contact_main
+            display: flex
+            justify-content: space-between
+            @media screen and (max-width: 1024px)
+                flex-direction: column
+                max-width: 500px
+                width: 90%
+                margin: 0 auto
+            .k_contact_left
+                text-align: left
+                flex: 0 0 45%
+                .k_contact_fg
+                    position relative
+                    padding 15px 0 0
+                    margin-top 30px
+                    width 100%
+                    #error
+                        color: $lr_hover
+                        font_family(15px, false, 'proxima_regular')
+                        position: absolute
+                        left: 14px
+                        bottom: -20px
+                    .arrow 
+                        border: solid $lv
+                        border-width: 0 1px 1px 0
+                        display: inline-block
+                        padding: 4px
+                        &.down 
+                            transform: rotate(45deg)
+                            -webkit-transform: rotate(45deg)
+                            position: absolute
+                            bottom: 15px
+                            right: 15px
+                    .k_contact_field
+                        -webkit-appearance: none
+                        -moz-appearance:    none
+                        appearance:         none
+                        font-family inherit
+                        width 100%
+                        border 0
+                        border-bottom 1px solid $black
+                        outline 0
+                        font_family(21px, false, 'proxima_regular')
+                        color $lr
+                        padding 7px 0
+                        background transparent
+                        transition border-color 0.2s
+                        padding-left: 15px
+                        &::placeholder
+                            color transparent
+                        &:placeholder-shown
+                            & ~ .form__label
+                                font_family(16px, false, 'proxima_regular')
+                                cursor text
+                                top 20px
+                                left: 15px
+                        &:focus
+                            padding-bottom 6px
+                            font-weight 300
+                            border-width 2px
+                            border-image linear-gradient(to right, $lr, $lr_hover)
+                            border-image-slice 1
+                            & ~ .form__label
+                                position absolute
+                                top 0
+                                display block
+                                transition 0.2s
+                                font-size 14px
+                                color $black
+                        &.k_ph_message
+                            height: 200px
+                            resize: none
+                            &::placeholder
+                                color #CFCFCF
+                                font_family(22px, false, 'proxima_regular')
+                                @media screen and (max-width: 500px)
+                                    font-size: 18px
+                            &:placeholder-shown
+                                & ~ .form__label
+                                    cursor text
+                                    top 0px
+                        &.k_select *
+                            padding-left: 10px
+
+                    .form__label
+                        position absolute
+                        top 0
+                        display block
+                        transition 0.2s
+                        font_family(16px, false, 'proxima_regular')
+                        color $black
+                        left: 15px
+
+                    .k_contact_field:required, .k_contact_field:invalid
+                        box-shadow none
+                .k_btn_hldr
+                    text-align: center
+                    margin-top: 40px
+                    .k_btn
+                        padding: 18px 0px
+                        max-width: 300px
+                        width: 90%
+                        @media screen and (max-width: 500px)
+                            width: 100%
+                            max-width: 100%
+            .k_contact_right
+                flex: 0 0 45%
+                padding-top: 60px
+                @media screen and (max-width: 1200px)
+                    flex: 0 0 47%
+                .k_contact_item
+                    display: flex
+                    justify-content: flex-start
+                    align-items: center
+                    padding-bottom: 30px
+                    font_family(20px, false, 'proxima_regular')
+                    @media screen and (max-width: 1200px)
+                        font-size: 17px
+                    @media screen and (max-width: 550px)
+                        font-size: 15px
+                        text-align: left
+                    img
+                        margin-right: 20px
+                        @media screen and (max-width: 400px)
+                            margin-right: 15px
+                    &:nth-of-type(3)
+                        img
+                            margin-left: -7px
+    .k_email_success
+        position: fixed
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        background: rgba(0, 0, 0, 0.8)
+        display: flex
+        justify-content: center
+        align-items: center
+        z-index: 9999999
+        .k_email_succ
+            max-width: 500px
+            width: 90%
+            margin:0 auto
+            background: $white
+            text-align: center
+            border-radius: 12px 
+            padding: 60px 10px 
+            @media screen and (max-width: 420px)
+                padding: 30px 10px
+            img
+                width: 122px
+            h1
+                font_family(24px, false, 'proxima_bold')
+                color: $lr
+                margin: 15px 0px 10px 0px
+            p
+                font_family(16px, false, 'proxima_regular')
+
+    .k_footer
+        text-align: center
+        margin-top: 150px
+        margin-bottom: 30px
+        @media screen and (max-width: 1024px)
+            margin-top: 50px
+        .k_go_top
+            cursor: pointer
+            img
+                width: 22px
+            h4
+                font_family(16px, false, 'proxima_bold')
+                color: $lv
+                padding: 10px 0px 25px 0px
+        p
+            font_family(16px, false, 'proxima_regular')
+
+
+                
+
+
+
+
+
+    
+
+                    

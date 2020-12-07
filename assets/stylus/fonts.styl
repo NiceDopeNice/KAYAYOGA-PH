@@ -1,0 +1,22 @@
+@font-face
+    font-family: proxima_regular
+    font-style: normal
+    src: url('~assets/fonts/Proxima-Nova-Soft-Regular.ttf') format('truetype')
+@font-face
+    font-family: proxima_bold
+    font-style: normal
+    src: url('~assets/fonts/Proxima-Nova-Soft-Bold.ttf') format('truetype')
+
+font_family(size, uppercaseStatus, type)
+    font-size: size
+    font-style: normal
+    if uppercaseStatus
+        text-transform: uppercase
+    else
+        text-transform: none
+    if type == 'proxima_regular'
+        font-family: proxima_regular
+        font-weight: normal
+    if type == 'proxima_bold'
+        font-family: proxima_bold
+        font-weight: bold 
